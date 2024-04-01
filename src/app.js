@@ -11,16 +11,17 @@ window.onload = function () {
   //write your code here
 
 
-  let palos = ['♦', '♥', '♠', '♣'];
-  let pics = [diamonds, hearts, spades, clubs];
+  let palos = [['♦', diamonds], ['♥', hearts], ['♠', spades], ['♣', clubs]];
   let cartas = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
   let textMap = '<ul class="list-group">'
   textMap += '<li class="list-group-it∫em bg-success text-light">Poker Cards</li>'
-  palos.map((iterator) => {
-    pics.map((item) => {
-      cartas.map((element) => {
-        textMap += `
+  palos.map((palo) => {
+    let iterator = palo[0];
+    let item = palo[1];
+
+    cartas.map((element) => {
+      textMap += `
         <div class="container d-flex justify-content-center">
            <div class="card" style="width: 18rem;">
             <img src="${item}" class="card-img-top" alt="...">
@@ -32,9 +33,9 @@ window.onload = function () {
         </div>
         `
 
-      })
     })
   })
   textMap += '</ul>';
   document.querySelector('#poker').innerHTML = textMap;
-}
+};
+
